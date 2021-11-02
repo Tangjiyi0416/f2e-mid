@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vtuber Picker</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vtpicker.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        let questions = [{
+            q: "習慣的就寢時間？",
+            ans: [{
+                display: "A：22:00前",
+                tag: "ans_sleep_1"
+            }, {
+                display: "B：00:00左右",
+                tag: "ans_sleep_2"
+            }, {
+                display: "C：02:00後",
+                tag: "ans_sleep_3"
+            }, {
+                display: "D：睡你XX起來嗨",
+                tag: "ans_sleep_4"
+            }, ]
+        }, {
+            q: "X！好怪喔？",
+            ans: [{
+                display: "A：再看一眼",
+                tag: "ans_curiosity_1"
+            }, {
+                display: "B：發限動",
+                tag: "ans_curiosity_2"
+            }, {
+                display: "C：以上皆是",
+                tag: "ans_curiosity_3"
+            }, {
+                display: "D：掉頭離開",
+                tag: "ans_curiosity_4"
+            }, ]
+        }, ];
+
+        let curQuestion = 0;
+        let finalTags = [];
+        $(function() {
+            $("#btn-quiz-start").click(nextQuestion);
+        });
+
+        function nextQuestion() {
+            if (curQuestion >= questions.length) {
+                //show result
+                alert(`quiz completed!\nYour tags are:\n${finalTags}\n`);
+                curQuestion = 0;
+                finalTags.length = 0;
+                $("#quiz").html(`<h2>做個小測驗，找到你想廚的V</h2>
+            <button class="btn-quiz-start" id="btn-quiz-start">做就對了</button>`);
+                $("#btn-quiz-start").click(nextQuestion);
+                return;
+            }
+            let options = "";
+            questions[curQuestion].ans.forEach(element => {
+                options += `<button class="btn-question-option" id="${element.tag}">${element.display}</button>`;
+            });
+
+            $("#quiz").html(`<h2>${questions[curQuestion].q}</h2>` + options);
+            questions[curQuestion].ans.forEach(element => {
+                $(`#${element.tag}`).click(() => {
+                    finalTags.push(element.tag)
+                }).click(nextQuestion);
+            });
+            curQuestion++;
+        }
+    </script>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div class="result-display">
+
+        </div>
+        <div class="mascot">
+
+        </div>
+        <div class="quiz" id="quiz">
+            <h2>做個小測驗，找到你想廚的V</h2>
+            <button class="btn-quiz-start" id="btn-quiz-start">做就對了</button>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
