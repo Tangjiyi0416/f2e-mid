@@ -54,7 +54,10 @@
                 //show result
                 alert(`quiz completed!\nYour tags are:\n${finalTags}\n`);
                 curQuestion = 0;
-                $("#quiz").empty();
+                finalTags.length = 0;
+                $("#quiz").html(`<h2>做個小測驗，找到你想廚的V</h2>
+            <button class="btn-quiz-start" id="btn-quiz-start">做就對了</button>`);
+                $("#btn-quiz-start").click(nextQuestion);
                 return;
             }
             let options = "";
