@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/vtpicker.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
-        let quizzes = [{
+        let questions = [{
             q: "習慣的就寢時間？",
             ans: [{
                 display: "A：22:00前",
@@ -44,17 +44,32 @@
         }, ];
 
         let curQuestion = 0;
+        let finalTags = [];
         $(function() {
-            $(".btn-quiz-start").click(function() {
-                curQuestion++;
-                if (curQuestion >= quizzes.length) {
-                    //show result
-                    alert("quiz completed!");
-                    curQuestion = 0;
-                }
-                $(".quiz").html();
-            })
+            $("#btn-quiz-start").click(nextQuestion);
         });
+
+        function nextQuestion() {
+            if (curQuestion >= questions.length) {
+                //show result
+                alert(`quiz completed!\nYour tags are:\n${finalTags}\n`);
+                curQuestion = 0;
+                $("#quiz").empty();
+                return;
+            }
+            let options = "";
+            questions[curQuestion].ans.forEach(element => {
+                options += `<button class="btn-question-option" id="${element.tag}">${element.display}</button>`;
+            });
+
+            $("#quiz").html(`<h2>${questions[curQuestion].q}</h2>` + options);
+            questions[curQuestion].ans.forEach(element => {
+                $(`#${element.tag}`).click(() => {
+                    finalTags.push(element.tag)
+                }).click(nextQuestion);
+            });
+            curQuestion++;
+        }
     </script>
 </head>
 
@@ -67,9 +82,9 @@
         <div class="mascot">
 
         </div>
-        <div class="quiz">
+        <div class="quiz" id="quiz">
             <h2>做個小測驗，找到你想廚的V</h2>
-            <button class="btn-quiz-start">做就對了</button>
+            <button class="btn-quiz-start" id="btn-quiz-start">做就對了</button>
         </div>
     </main>
     <footer>
