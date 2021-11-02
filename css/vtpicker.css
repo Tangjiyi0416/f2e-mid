@@ -1,0 +1,10 @@
+main {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.result-display {
+    width: 800px;
+    height: 600px;
+    background: #000;
+}
