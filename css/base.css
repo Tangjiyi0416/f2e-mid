@@ -1,7 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 html {
     box-sizing: border-box;
+    font-size: 24px;
+    font-family: "Roboto";
 }
 
 *, *::before, *::after {
     box-sizing: inherit;
 }
+
+body {
+    width: 1440px;
+    margin: auto;
+}
+
+header {
+    background: #F87A2E;
+    display: flex;
+    justify-content: space-between;
+    height: 2.5rem;
+}
+
+.header-divider {
+    background: #FFF;
+    width: 3px;
+    height: 20;
+}
+
+.header-link {
+    width: 33%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    color: #FFF;
+}
+
+footer {}
