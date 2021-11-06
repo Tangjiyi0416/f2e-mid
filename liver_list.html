@@ -9,14 +9,45 @@
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/">
     <link rel="stylesheet" href="css/shared_layout.css">
     <link rel="stylesheet" href="css/shared_element.css">
+    <link rel="stylesheet" href="css/liver_list.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="js/shared_layout.js"></script>
+    <script>
+        let liverNames = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+        $(function() {
+            let finalHtml = "";
+            for (let i = 1; i <= liverNames.length; i++) {
+                finalHtml += i % 2 != 0 ?
+                    `<div class="liver-box-item odd-offset">
+                        <img class="liver-box-item-img" src="img/liverlist/liverlist_image${i}.png">
+                    <div class="liver-box-item-text-left">
+                        <span>${liverNames[i]}</span>
+                        <svg width="353" height="67" viewBox="0 0 353 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="1.05578" y1="65.8345" x2="80.0558" y2="1.83448" stroke="black" stroke-width="3"/>
+                            <line x1="81" y1="1.5" x2="353" y2="1.5" stroke="black" stroke-width="3"/>
+                            </svg>
+
+                    </div>
+                </div>` :
+                    `<div class="liver-box-item even-offset">
+                    <img class="liver-box-item-img" src="img/liverlist/liverlist_image${i}.png">
+                    <div class="liver-box-item-text-right">
+                        <span>${liverNames[i]}</span>
+                        <svg width="353" height="67" viewBox="0 0 353 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="351.944" y1="1.16552" x2="272.944" y2="65.1655" stroke="black" stroke-width="3"/>
+                            <line x1="272" y1="65.5" y2="65.5" stroke="black" stroke-width="3"/>
+                            </svg>
+                    </div>
+                </div>`;
+            }
+            $(".liver-box").html(finalHtml);
+        });
+    </script>
 </head>
 
 <body>
     <main>
         <div class="liver-box">
-
         </div>
     </main>
 </body>
