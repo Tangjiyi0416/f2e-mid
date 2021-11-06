@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 html {
+    height: 100%;
     box-sizing: border-box;
     font-size: 24px;
     font-family: "Roboto";
@@ -10,9 +11,15 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     width: 1440px;
-    margin: auto;
+    height: 100%;
+    margin: 0 auto;
 }
+
+
+/*#region header*/
 
 header {
     background: #F87A2E;
@@ -36,4 +43,29 @@ header {
     color: #FFF;
 }
 
-footer {}
+
+/*#endregion*/
+
+
+/*#region main*/
+
+main {
+    flex: 1 0 auto;
+}
+
+
+/*#endregion*/
+
+
+/*#region footer*/
+
+footer {
+    background: #F87A2E;
+    height: 2rem;
+    flex-shrink: 0;
+    text-align: center;
+    line-height: 2rem;
+}
+
+
+/*#endregion*/
