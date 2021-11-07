@@ -34,27 +34,33 @@
             this.resume();
         }
 
-        let currentSlide = [0, 0];
+        let currentSlide = [0, 3];
         let news = [{
             title: "緋紅怪盜，襲來!!",
-            desc: "赤色組織的最後一人\n優雅的偷心怪盜露易絲·嘉米\n11/5 3D初展示"
+            desc: "赤色組織的最後一人<br>優雅的偷心怪盜露易絲·嘉米<br>11/5 3D初展示",
+            link: "https://www.youtube.com/watch?v=9wn2DTbkl2A"
         }, {
             title: "「1 ∞ color」原創MV公開",
-            desc: "initial step in NIJISANJI\n八位演出者的原創曲「1 ∞ color」\n的原創MV今日公開示"
+            desc: "initial step in NIJISANJI<br>八位演出者的原創曲「1 ∞ color」<br>的原創MV今日公開示",
+            link: "https://www.youtube.com/watch?v=At-yl_4EFCo"
         }, {
             title: "神明，參上!!",
-            desc: "足不出戶的家裡蹲神明\n3D展露日決定\n11/12(五) 21:00"
+            desc: "足不出戶的家裡蹲神明<br>3D展露日決定<br>11/12(五) 21:00",
+            link: "https://www.youtube.com/watch?v=Hoyke-c0Rf8"
         }, {
             title: "無人島組合全新組成",
-            desc: "郵件持刀也、加賀美隼人、\n不破湊、甲斐田晴，\n四人所組成的新團體ROF-MAO\n每周四將在ROF-MAO的頻道上傳\n以成為「好男人好男孩」\n為宗旨的全新節目--木10! ROF-MAO塾"
+            desc: "郵件持刀也、加賀美隼人、<br>不破湊、甲斐田晴，<br>四人所組成的新團體ROF-MAO<br>每周四將在ROF-MAO的頻道上傳<br>以成為「好男人好男孩」<br>為宗旨的全新節目--木10! ROF-MAO塾",
+            link: "https://www.youtube.com/channel/UCwi4P78SVunSYAGrvC9aKcw"
         }, {
             title: "OBSYDIA出道一周年紀念",
-            desc: "由Selen Tatsuki、Rosemi Lovelock、\nPetra Gurin 三人出道一周年紀念\n一周年出道紀念語音及數位桌布\n限時發售"
+            desc: "由Selen Tatsuki、Rosemi Lovelock、<br>Petra Gurin 三人出道一周年紀念<br>一周年出道紀念語音及數位桌布<br>限時發售",
+            link: "https://nijisanji-store.com"
         }, {
             title: "全新組合Ethyria新出道",
-            desc: "彩虹社en又添新成員\n這次來到的新夥伴們又會是些什人呢 ?"
+            desc: "彩虹社en又添新成員<br>這次來到的新夥伴們又會是些什人呢 ?",
+            link: "https://youtu.be/9DyDiay4678"
         }, ];
-
+        /*一直刪改感覺好浪費，有時間再改*/
         function nextNews(articleItemIndex) {
             //除舊
             $(`#slideshow-box-${articleItemIndex*2}>.slideshow-box-img-content`).addClass("fadeout")
@@ -62,19 +68,19 @@
                 .on('animationend', function() {
                     // your event handler
                     $(this).remove();
-                });;
+                });
             $(`#slideshow-box-${articleItemIndex*2+1}>.slideshow-box-text-content`).addClass("fadeout")
                 /*addEventListener is probably better but anyway*/
                 .on('animationend', function() {
                     // your event handler
                     $(this).remove();
-                });;
+                });
             //佈新
             let cur = currentSlide[articleItemIndex];
-            cur = cur > articleItemIndex * 3 + 2 ? articleItemIndex * news.length / currentSlide.length : articleItemIndex + 1;
+            cur = cur >= articleItemIndex * 3 + 2 ? articleItemIndex * news.length / currentSlide.length : cur + 1;
             $(`#slideshow-box-${articleItemIndex*2}`).append(
                 `
-                        <img class="slideshow-box-img-content fadein" src="img/homepage/homepage_news_image${currentSlide[articleItemIndex]+1}.png">
+                       <a class="slideshow-box-img-content fadein" href="${news[cur].link}"><img src="img/homepage/homepage_news_image${cur+1}.png">
                         `
             );
             $(`#slideshow-box-${articleItemIndex*2+1}`).append(
@@ -85,15 +91,19 @@
                     </div>
                     `
             );
-
+            currentSlide[articleItemIndex] = cur;
         }
         $(function() {
             let timer1 = new LoopTimer(() => {
                 nextNews(0);
             }, 3000);
+            $(`#slideshow-box-0`).mouseenter(timer1.pause).mouseleave(timer1.resume);
+            $("#slideshow-box-1").mouseenter(timer1.pause).mouseleave(timer1.resume);
             let timer2 = new LoopTimer(() => {
                 nextNews(1);
             }, 3000);
+            $("#slideshow-box-2").mouseenter(timer2.pause).mouseleave(timer2.resume);
+            $("#slideshow-box-3").mouseenter(timer2.pause).mouseleave(timer2.resume);
         });
     </script>
 
@@ -111,24 +121,24 @@
             <div class="news-box-container">
                 <article class="news-box-container-item flex-L2R">
                     <div class="slideshow-box-img" id="slideshow-box-0">
-                        <img class="slideshow-box-img-content" src="img/homepage/homepage_news_image1.png">
+                        <a class="slideshow-box-img-content" href="https://www.youtube.com/watch?v=9wn2DTbkl2A"><img src="img/homepage/homepage_news_image1.png"></a>
                     </div>
                     <div class="slideshow-box-text" id="slideshow-box-1">
                         <div class="slideshow-box-text-content">
-                            <h3>文字5416464694849684694</h3>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, ut ab! Architecto, delectus vel! Repellat voluptatem, eaque esse, pariatur quod optio amet vitae deleniti soluta illo ex, accusamus delectus similique.</span>
+                            <h3>緋紅怪盜，襲來!!</h3>
+                            <span>赤色組織的最後一人<br>優雅的偷心怪盜露易絲·嘉米<br>11/5 3D初展示</span>
                         </div>
                     </div>
 
                 </article>
                 <article class="news-box-container-item flex-R2L">
                     <div class="slideshow-box-img" id="slideshow-box-2">
-                        <img class="slideshow-box-img-content" src="img/homepage/homepage_news_image4.png">
+                        <a class="slideshow-box-img-content" href="https://www.youtube.com/channel/UCwi4P78SVunSYAGrvC9aKcw"><img src="img/homepage/homepage_news_image4.png"></a>
                     </div>
                     <div class="slideshow-box-text" id="slideshow-box-3">
                         <div class="slideshow-box-text-content">
-                            <h3>文字5416464694849684694</h3>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, ut ab! Architecto, delectus vel! Repellat voluptatem, eaque esse, pariatur quod optio amet vitae deleniti soluta illo ex, accusamus delectus similique.</span>
+                            <h3>無人島組合全新組成</h3>
+                            <span>郵件持刀也、加賀美隼人、不破湊、甲斐田晴，四人所組成的新團體ROF-MAO<br>每周四將在ROF-MAO的頻道上傳<br>以成為「好男人好男孩」<br>為宗旨的全新節目--木10! ROF-MAO塾</span>
                         </div>
                     </div>
                 </article>

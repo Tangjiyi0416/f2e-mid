@@ -54,7 +54,7 @@
         function nextQuestion() {
             if (curQuestion >= questions.length) {
                 //show result
-                alert(`quiz completed!\nYour tags are:\n${finalTags}\n`);
+                alert(`quiz completed!<br>Your tags are:<br>${finalTags}<br>`);
                 curQuestion = 0;
                 finalTags.length = 0;
                 $("#quiz").html(`<h2>做個小測驗，找到你想廚的V</h2>

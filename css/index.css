@@ -118,7 +118,7 @@ main {
 .slideshow-box-text-content {
     position: relative;
     min-width: 100%;
-    background: #cacaca;
+    /* background: #cacaca; */
     text-align: center;
 }
 
