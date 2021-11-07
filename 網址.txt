@@ -1,0 +1,145 @@
+homepage
+
+homepage_news_image1
+https://www.youtube.com/watch?v=9wn2DTbkl2A
+
+homepage_news_image2
+https://www.youtube.com/watch?v=At-yl_4EFCo
+
+homepage_news_image3
+https://www.youtube.com/watch?v=Hoyke-c0Rf8
+
+
+homepage_news_image4
+https://www.youtube.com/channel/UCwi4P78SVunSYAGrvC9aKcw
+
+
+homepage_news_image5
+https://nijisanji-store.com
+
+
+homepage_news_image6
+https://youtu.be/9DyDiay4678
+
+
+liver_detail
+
+liver 1
+youtube
+https://www.youtube.com/channel/UCD-miitqNY3nyukJ4Fnf4_A
+twitter
+https://twitter.com/MitoTsukino
+
+liver 2
+youtube
+https://www.youtube.com/c/ShizukaRinOfficial
+twitter
+https://twitter.com/ShizuRin23
+
+liver 3
+youtube
+https://www.youtube.com/channel/UCsg-YqdqQ-KFF0LNk23BY4A
+twitter
+https://twitter.com/HiguchiKaede
+
+liver 4
+youtube
+https://www.youtube.com/channel/UCv1fFr156jc65EMiLbaLImw/featured
+twitter
+ https://twitter.com/rei_Toya_rei
+
+liver 5
+youtube
+https://www.youtube.com/channel/UC0g1AE0DOjBYnLhkgoRWN1w
+twitter
+https://twitter.com/honmahimawari
+
+liver 6
+youtube
+https://www.youtube.com/c/KanaeChanneltwitter
+twitter
+https://twitter.com/Kanae_2434
+
+liver 7
+youtube
+https://www.youtube.com/channel/UCSFCh5NL4qXrAy9u-u2lX3g
+twitter
+https://twitter.com/Vamp_Kuzu
+
+liver 8
+youtube
+https://www.youtube.com/channel/UCKMYISTJAQ8xTplUPHiABlA
+twitter
+https://twitter.com/846kizuQ
+
+liver 9
+youtube
+https://www.youtube.com/channel/UC53UDnhAAYwvNO7j_2Ju1cQ
+twitter
+https://twitter.com/___Dola
+
+liver 10
+youtube
+https://www.youtube.com/channel/UChUJbHiTVeGrSkTdBzVfNCQ
+twitter
+https://twitter.com/JoeRikiichi
+
+liver 11
+youtube
+https://www.youtube.com/channel/UCPvGypSgfDkVe7JG2KygK7A
+twitter
+https://twitter.com/RindouMikoto
+
+liver 12
+youtube
+https://www.youtube.com/channel/UCV5ZZlLjk5MKGg3L0n0vbzw
+twitter
+https://twitter.com/TakamiyaRion
+
+liver 13
+youtube
+https://www.youtube.com/channel/UC1zFJrfEKvCixhsjNSb1toQ
+twitter
+https://twitter.com/SisterCleaire
+
+liver 14
+youtube
+https://www.youtube.com/channel/UCZ1xuCK1kNmn5RzPYIZop3w
+twitter
+https://twitter.com/Lize_Helesta
+
+liver 15
+youtube
+https://www.youtube.com/channel/UCHVXbQzkl3rDfsXWo8xi2qw
+twitter
+https://twitter.com/ange_katrina_
+
+liver 16
+youtube
+https://www.youtube.com/channel/UCXRlIK3Cw_TJIQC5kSJJQMg
+twitter
+https://twitter.com/inui_toko
+
+liver 17
+youtube
+https://www.youtube.com/channel/UCt5-0i4AVHXaWJrL8Wql3mw
+twitter
+https://twitter.com/midori_2434
+
+liver 18
+youtube
+https://www.youtube.com/channel/UCTIE7LM5X15NVugV7Krp9Hw
+twitter
+https://twitter.com/kakeru_yumeoi
+
+liver 19
+youtube
+https://www.youtube.com/channel/UC9V3Y3_uzU5e-usObb6IE1w
+twitter
+https://twitter.com/Sara_Hoshikawa
+
+liver 20
+youtube
+https://www.youtube.com/channel/UCmovZ2th3Sqpd00F5RdeigQ
+twitter
+https://twitter.com/H_KAGAMI2434
