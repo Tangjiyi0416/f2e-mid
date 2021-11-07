@@ -3,6 +3,13 @@ html {
     overflow: overlay;
 }
 
+#header-link-index {
+    display: block;
+    height: 95%;
+    padding-bottom: 0px;
+    border-bottom: 2px solid #fFF;
+}
+
 main {
     display: flex;
     flex-direction: column;

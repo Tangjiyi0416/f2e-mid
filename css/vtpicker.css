@@ -3,6 +3,13 @@ main {
     margin: 0 auto;
 }
 
+#header-link-liver-picker {
+    display: block;
+    height: 95%;
+    padding-bottom: 0px;
+    border-bottom: 2px solid #fFF;
+}
+
 .result-display {
     width: 800px;
     height: 600px;

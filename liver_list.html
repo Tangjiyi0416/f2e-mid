@@ -23,7 +23,7 @@
             for (let i = 0; i < liverNames.length; i++) {
                 finalHtml += i % 2 == 0 ?
                     `<div class="liver-box-item odd-offset">
-                        <a href="liver_detail.html"><img class="liver-box-item-img liver-img" src="img/liverlist/liverlist_image${i+1}.png"></a>
+                        <a href="liver_detail.html?liver=${liverNames[i]}"><img class="liver-box-item-img liver-img" src="img/liverlist/liverlist_image${i+1}.png"></a>
                         <div class="liver-box-item-text-left">
                             <span>${liverNames[i]}</span>
                             <svg width="353" height="67" viewBox="0 0 353 67" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@
                         </div>
                     </div>` :
                     `<div class="liver-box-item even-offset">
-                        <a href="liver_detail.html"><img class="liver-box-item-img liver-img" src="img/liverlist/liverlist_image${i+1}.png"></a>
+                        <a href="liver_detail.html?liver=${liverNames[i]}"><img class="liver-box-item-img liver-img" src="img/liverlist/liverlist_image${i+1}.png"></a>
                         <div class="liver-box-item-text-right">
                             <span>${liverNames[i]}</span>
                             <svg width="353" height="67" viewBox="0 0 353 67" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,6 @@
 
 <body>
     <main>
-        <a href="liver_detail.html?ab=c">aaa</a>
         <div class="liver-box">
         </div>
     </main>

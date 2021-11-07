@@ -1,3 +1,10 @@
+#header-link-liver-list {
+    display: block;
+    height: 95%;
+    padding-bottom: 0px;
+    border-bottom: 2px solid #fFF;
+}
+
 .liver-box {
     margin: 180px 83px;
     display: flex;

@@ -1,0 +1,61 @@
+main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+main>img {
+    max-height: 864px;
+}
+
+.prev, .next {
+    position: absolute;
+    transition: opacity 0.3s ease;
+}
+
+.prev {
+    transform: scaleX(-1);
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    opacity: 0.5;
+}
+
+.content-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 528px;
+    gap: 44px;
+}
+
+.content-box-name {
+    display: flex;
+    background-color: #C2C2C2;
+    font-size: 1.5rem;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-box-desc {
+    display: flex;
+    background-color: #C2C2C2;
+    font-size: 0.875rem;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-box-media {
+    display: flex;
+    justify-content: end;
+    gap: 35px;
+}
