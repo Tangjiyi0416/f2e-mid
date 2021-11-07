@@ -14,36 +14,86 @@
     <script src="js/shared_layout.js"></script>
     <script>
         /*timer code from https://stackoverflow.com/questions/3969475/javascript-pause-settimeout*/
-        let Timer = function(callback, delay) {
-            let id, start, remain = delay;
+        let LoopTimer = function(callback, interval) {
+            let timerId, start, remaining = interval;
             this.pause = function() {
-                window.clearTimeout(id);
-                remain -= Date.now() - start;
-            }
+                window.clearTimeout(timerId);
+                remaining -= Date.now() - start;
+            };
+
             this.resume = function() {
                 start = Date.now();
                 window.clearTimeout(timerId);
-                timerId = window.setTimeout(callback, remaining);
+                timerId = window.setTimeout(() => {
+                    callback();
+                    remaining = interval;
+                    this.resume();
+                }, remaining);
             };
 
             this.resume();
         }
 
-        let currentImg = [1, 1];
+        let currentSlide = [0, 0];
+        let news = [{
+            title: "緋紅怪盜，襲來!!",
+            desc: "赤色組織的最後一人\n優雅的偷心怪盜露易絲·嘉米\n11/5 3D初展示"
+        }, {
+            title: "「1 ∞ color」原創MV公開",
+            desc: "initial step in NIJISANJI\n八位演出者的原創曲「1 ∞ color」\n的原創MV今日公開示"
+        }, {
+            title: "神明，參上!!",
+            desc: "足不出戶的家裡蹲神明\n3D展露日決定\n11/12(五) 21:00"
+        }, {
+            title: "無人島組合全新組成",
+            desc: "郵件持刀也、加賀美隼人、\n不破湊、甲斐田晴，\n四人所組成的新團體ROF-MAO\n每周四將在ROF-MAO的頻道上傳\n以成為「好男人好男孩」\n為宗旨的全新節目--木10! ROF-MAO塾"
+        }, {
+            title: "OBSYDIA出道一周年紀念",
+            desc: "由Selen Tatsuki、Rosemi Lovelock、\nPetra Gurin 三人出道一周年紀念\n一周年出道紀念語音及數位桌布\n限時發售"
+        }, {
+            title: "全新組合Ethyria新出道",
+            desc: "彩虹社en又添新成員\n這次來到的新夥伴們又會是些什人呢 ?"
+        }, ];
 
-        function nextImg(slideshowBoxIndex) {
-            currentImg[slideshowBoxIndex] = currentImg[slideshowBoxIndex] > 2 ? 0 : currentImg[slideshowBoxIndex] + 1;
-            $(`#slideshowBox${slideshowBoxId}}`).html(
+        function nextNews(articleItemIndex) {
+            //除舊
+            $(`#slideshow-box-${articleItemIndex*2}>.slideshow-box-img-content`).addClass("fadeout")
+                /*addEventListener is probably better but anyway*/
+                .on('animationend', function() {
+                    // your event handler
+                    $(this).remove();
+                });;
+            $(`#slideshow-box-${articleItemIndex*2+1}>.slideshow-box-text-content`).addClass("fadeout")
+                /*addEventListener is probably better but anyway*/
+                .on('animationend', function() {
+                    // your event handler
+                    $(this).remove();
+                });;
+            //佈新
+            let cur = currentSlide[articleItemIndex];
+            cur = cur > articleItemIndex * 3 + 2 ? articleItemIndex * news.length / currentSlide.length : articleItemIndex + 1;
+            $(`#slideshow-box-${articleItemIndex*2}`).append(
                 `
-                    <img class="slideshow-box-content" src="img/homepage/homepage_news_image${currentImg[slideshowBoxIndex]}.png">
+                        <img class="slideshow-box-img-content fadein" src="img/homepage/homepage_news_image${currentSlide[articleItemIndex]+1}.png">
+                        `
+            );
+            $(`#slideshow-box-${articleItemIndex*2+1}`).append(
+                `
+                    <div class="slideshow-box-text-content fadein">
+                        <h3>${news[cur].title}</h3>
+                        <span>${news[cur].desc}</span>
+                    </div>
                     `
             );
+
         }
         $(function() {
-            let timer = new Timer(function() {
-
-
-            });
+            let timer1 = new LoopTimer(() => {
+                nextNews(0);
+            }, 3000);
+            let timer2 = new LoopTimer(() => {
+                nextNews(1);
+            }, 3000);
         });
     </script>
 
@@ -58,20 +108,28 @@
         <div class="divider"></div>
         <div class="news-box">
             <h2>新聞</h2>
-            <div class="news-box-articles">
-                <article class="news-box-articles-item flex-L2R">
-                    <div class="slideshow-box" id="slideshow-box-1">
-                        <img class="slideshow-box-content" src="img/homepage/homepage_news_image1.png">
+            <div class="news-box-container">
+                <article class="news-box-container-item flex-L2R">
+                    <div class="slideshow-box-img" id="slideshow-box-0">
+                        <img class="slideshow-box-img-content" src="img/homepage/homepage_news_image1.png">
                     </div>
-                    <div class="news-box-articles-item-content">
-                        <h3>文字5416464694849684694</h3>
-                        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, ut ab! Architecto, delectus vel! Repellat voluptatem, eaque esse, pariatur quod optio amet vitae deleniti soluta illo ex, accusamus delectus similique.</span>
+                    <div class="slideshow-box-text" id="slideshow-box-1">
+                        <div class="slideshow-box-text-content">
+                            <h3>文字5416464694849684694</h3>
+                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, ut ab! Architecto, delectus vel! Repellat voluptatem, eaque esse, pariatur quod optio amet vitae deleniti soluta illo ex, accusamus delectus similique.</span>
+                        </div>
                     </div>
+
                 </article>
-                <article class="news-box-articles-item flex-R2L">
-                    <div class="news-box-articles-item-content">
-                        <h3>文字451616165465445464496</h3>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores commodi magnam ratione accusantium excepturi voluptatum architecto, iusto earum ut ad quae, quisquam similique tenetur doloremque unde dicta culpa suscipit ducimus.</span>
+                <article class="news-box-container-item flex-R2L">
+                    <div class="slideshow-box-img" id="slideshow-box-2">
+                        <img class="slideshow-box-img-content" src="img/homepage/homepage_news_image4.png">
+                    </div>
+                    <div class="slideshow-box-text" id="slideshow-box-3">
+                        <div class="slideshow-box-text-content">
+                            <h3>文字5416464694849684694</h3>
+                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, ut ab! Architecto, delectus vel! Repellat voluptatem, eaque esse, pariatur quod optio amet vitae deleniti soluta illo ex, accusamus delectus similique.</span>
+                        </div>
                     </div>
                 </article>
             </div>
