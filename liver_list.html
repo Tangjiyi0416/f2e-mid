@@ -13,13 +13,17 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="js/shared_layout.js"></script>
     <script>
-        let liverNames = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+        let liverNames = [
+            "月之美兔", "靜凜", "樋口楓", "劍持刀也", "本間向日葵", "叶", "葛葉",
+            "社築", "多拉", "周·力一", "龍膽尊", "鷹宮莉音", "修女克蕾雅", "莉澤·赫露艾斯塔",
+            "安潔·卡特莉娜", "戌亥床", "綠仙", "夢追翔", "星川莎拉", "加賀美隼人"
+        ];
         $(function() {
             let finalHtml = "";
-            for (let i = 1; i <= liverNames.length; i++) {
-                finalHtml += i % 2 != 0 ?
+            for (let i = 0; i < liverNames.length; i++) {
+                finalHtml += i % 2 == 0 ?
                     `<div class="liver-box-item odd-offset">
-                        <img class="liver-box-item-img" src="img/liverlist/liverlist_image${i}.png">
+                        <img class="liver-box-item-img liver-img" src="img/liverlist/liverlist_image${i+1}.png">
                     <div class="liver-box-item-text-left">
                         <span>${liverNames[i]}</span>
                         <svg width="353" height="67" viewBox="0 0 353 67" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +34,7 @@
                     </div>
                 </div>` :
                     `<div class="liver-box-item even-offset">
-                    <img class="liver-box-item-img" src="img/liverlist/liverlist_image${i}.png">
+                    <img class="liver-box-item-img liver-img" src="img/liverlist/liverlist_image${i+1}.png">
                     <div class="liver-box-item-text-right">
                         <span>${liverNames[i]}</span>
                         <svg width="353" height="67" viewBox="0 0 353 67" fill="none" xmlns="http://www.w3.org/2000/svg">

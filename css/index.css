@@ -60,6 +60,11 @@ main {
 
 /*#region img*/
 
+.slideshow-container {
+    display: flex;
+    overflow: hidden;
+}
+
 .news-box-articles-item-img {
     min-height: 450px;
     background: #cacaca;

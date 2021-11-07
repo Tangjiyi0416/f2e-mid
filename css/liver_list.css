@@ -21,7 +21,7 @@
     width: 256px;
     height: 256px;
     border-radius: 50%;
-    background-color: #b9b9b9;
+    /* background-color: #b9b9b9; */
 }
 
 
@@ -38,10 +38,13 @@
 }
 
 .liver-box-item-text-left>span {
+    width: 272px;
     position: absolute;
-    left: 165px;
-    bottom: 100%;
+    right: 0;
+    top: -64px;
     font-size: 1.5rem;
+    text-align: center;
+    line-height: 64px;
 }
 
 .liver-box-item-text-right {
@@ -52,10 +55,11 @@
 }
 
 .liver-box-item-text-right>span {
+    width: 272px;
     position: absolute;
-    left: 100px;
-    top: 32%;
     font-size: 1.5rem;
+    text-align: center;
+    line-height: 64px;
 }
 
 
