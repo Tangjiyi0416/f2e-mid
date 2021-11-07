@@ -15,7 +15,11 @@
 
 <body>
     <main>
-
+        <script>
+            var params = new URLSearchParams(window.location.search);
+            first = params.get("ab");
+            alert(first);
+        </script>
     </main>
 </body>
 

@@ -21,13 +21,14 @@
                 remaining -= Date.now() - start;
             };
 
-            this.resume = function() {
+            this.resume = () => {
                 start = Date.now();
                 window.clearTimeout(timerId);
                 timerId = window.setTimeout(() => {
                     callback();
                     remaining = interval;
                     this.resume();
+                    console.log("re.");
                 }, remaining);
             };
 
@@ -102,8 +103,8 @@
             let timer2 = new LoopTimer(() => {
                 nextNews(1);
             }, 3000);
-            $("#slideshow-box-2").mouseenter(timer2.pause).mouseleave(timer2.resume);
-            $("#slideshow-box-3").mouseenter(timer2.pause).mouseleave(timer2.resume);
+            // $("#slideshow-box-2").mouseenter(timer2.pause).mouseleave(timer2.resume);
+            // $("#slideshow-box-3").mouseenter(timer2.pause).mouseleave(timer2.resume);
         });
     </script>
 
