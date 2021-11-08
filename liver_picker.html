@@ -74,7 +74,7 @@
                 tag: "4D"
             }, ]
         }, ];
-        let result = [{
+        let results = [{
             tags: ["1D", "2D", "3D", "4D"],
             livers: [21],
             desc: "既然你打出了那個神祕密碼<br>那麼我就推薦一個神祕的人吧<br>雖說她再也不會更新了<br>我曾經錯過了她，但我希望更多人能認識她<br>這樣她便不會真正的死去"
@@ -137,26 +137,35 @@
         let curQuestion = 0;
         let finalTags = [];
         $(function() {
-            $("#btn-quiz-start").click(nextQuestion);
+            $("#quiz-start-btn").click(nextQuestion);
         });
+
+        function restart() {
+            curQuestion = 0;
+            finalTags.length = 0;
+            $("#quiz").html(`<span class="quiz-box-desc">測試一下你感興趣的liver吧！</span>
+            <button class="quiz-start-btn" id="quiz-start-btn">開始</button>`);
+            $("#quiz-start-btn").click(nextQuestion);
+            $(".display-box-portrait-container-item-q").removeClass("hide");
+        }
 
         function nextQuestion() {
             if (curQuestion >= questions.length) {
                 //show result
-                alert(`quiz completed!<br>Your tags are:<br>${finalTags}<br>`);
-                curQuestion = 0;
-                finalTags.length = 0;
-                $("#quiz").html(`<h2>做個小測驗，找到你想廚的V</h2>
-            <button class="btn-quiz-start" id="btn-quiz-start">做就對了</button>`);
-                $("#btn-quiz-start").click(nextQuestion);
+                let result = results.find(e => e.tags.every(tag => finalTags.includes(tag)));
+                $("#quiz").html(`<span class="quiz-box-desc result-desc">${result.desc}</span>
+                   <button class="quiz-restart-btn" id="quiz-restart-btn">再來一次</button>`);
+                $("#portrait-left").html
+                $(".display-box-portrait-container-item-q").addClass("hide");
+                $("#quiz-restart-btn").click(restart);
                 return;
             }
-            let options = "";
+            let options = `<div class="quiz-box-option-box">`;
             questions[curQuestion].ans.forEach(element => {
-                options += `<button class="btn-question-option" id="${element.tag}">${element.display}</button>`;
+                options += `<button class="quiz-box-option" id="${element.tag}">${element.display}</button>`;
             });
 
-            $("#quiz").html(`<h2>${questions[curQuestion].q}</h2>` + options);
+            $("#quiz").html(options + "</div>");
             questions[curQuestion].ans.forEach(element => {
                 $(`#${element.tag}`).click(() => {
                     finalTags.push(element.tag)
@@ -171,20 +180,22 @@
     <main>
         <div class="display-box">
             <div class="display-box-portrait-container">
-                <div class="display-box-portrait-container-item" id="portrait-left">
-                    <a href=""><img src="" class="liver-img" alt=""></a>
+                <span class="display-box-portrait-container-item-q">?</span>
+                <div class="display-box-portrait-container-item hide" id="portrait-left">
+                    <a href=""><img class="display-box-portrait-container-item-img" src="img/liverpicker/liverpicker_image21.png" alt=""></a>
                 </div>
                 <div class="display-box-portrait-container-item" id="portrait-middle">
-
+                    <img class="display-box-portrait-container-item-img" src="img/liverpicker/liverpicker_image21.png" alt="">
+                    <a class="display-box-portrait-container-item-link" href=""></a>
                 </div>
-                <div class="display-box-portrait-container-item" id="portrait-right">
-
+                <div class="display-box-portrait-container-item hide" id="portrait-right">
+                    <a href=""><img class="display-box-portrait-container-item-img" src="img/liverpicker/liverpicker_image21.png" alt=""></a>
                 </div>
             </div>
         </div>
         <div class="quiz-box" id="quiz">
-            <h2>測試一下你感興趣的liver吧！</h2>
-            <button class="btn-quiz-start" id="btn-quiz-start">做就對了</button>
+            <span class="quiz-box-desc">測試一下你感興趣的liver吧！</span>
+            <button class="quiz-start-btn" id="quiz-start-btn">開始</button>
         </div>
     </main>
 </body>

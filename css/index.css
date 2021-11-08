@@ -6,8 +6,9 @@ html {
 #header-link-index {
     display: block;
     height: 95%;
+    width: 50%;
     padding-bottom: 0px;
-    border-bottom: 2px solid #fFF;
+    border-bottom: 3px solid #fFF;
 }
 
 main {
