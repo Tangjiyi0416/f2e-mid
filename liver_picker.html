@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/vtpicker.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="js/shared_layout.js"></script>
+    <script src="js/livers.js"></script>
     <script>
         let questions = [{
             q: "你希望V陪你的時間？",
@@ -121,11 +122,11 @@
             desc: "你適合的是刀也、加賀美、社築<br>他們這群幼稚的男人們<br>遊戲力在水平之上之餘保有的玩心<br>讓他們在不論甚麼場合都是如此的閃耀<br>當然彩虹這個魔窟還有更多這樣的人等著你去發現"
         }, {
             tags: ["3B", "4B"],
-            livers: [10, 16, 17],
+            livers: [8, 18, 19],
             desc: "你適合的是星川與她的受害者們<br>搞笑是他們的常態，尤其是星川玩起爸爸活後，<br>受苦的各位男性成員們<br>享受將快樂建立在他人痛苦上的愉悅吧<br>當然除了星川外還有更多的搞事仔等著你去挖掘"
         }, {
             tags: ["3D", "4A"],
-            livers: [10, 16, 17],
+            livers: [4, 7, 19],
             desc: "你適合的是刀也、葛葉、夢追三人，<br>他們不時會有歌回，但由於較為悶騷聯動的頻率不算太高<br>但也是彩虹社中的前段唱將<br>而彩虹中更是有著不少天籟卻不常歌唱的存在可以發掘"
         }, {
             tags: [],
@@ -153,6 +154,10 @@
             <button class="quiz-start-btn" id="quiz-start-btn">開始</button>`);
             $("#quiz-start-btn").click(start);
             $(".display-box-portrait-container-item-q").removeClass("hide");
+            $("#portrait-left").addClass("hide");
+            $("#portrait-middle-img").attr("src", `img/liverpicker/liverpicker_image21.png`);
+
+            $("#portrait-right").addClass("hide");
         }
 
         function nextQuestion() {
@@ -163,16 +168,34 @@
                    <button class="quiz-restart-btn" id="quiz-restart-btn">再來一次</button>`);
                 $(".display-box-portrait-container").removeClass("hide");
 
+                $(".display-box-portrait-container-item-q").addClass("hide");
                 $(".display-box-question-container").addClass("hide");
-                $("#portrait-left").html
+
+                if (result.livers.length == 3) {
+                    $("#portrait-left").removeClass("hide");
+                    $("#portrait-right").removeClass("hide");
+                    $("#portrait-left-img").attr("src", `img/liverpicker/liverpicker_image${result.livers[0]}.png`);
+                    $("#portrait-left-link").attr("href", `liver_detail.html?liver=${livers[result.livers[0]-1].name}`);
+                    $("#portrait-middle-img").attr("src", `img/liverpicker/liverpicker_image${result.livers[1]}.png`);
+                    $("#portrait-middle-link").attr("href", `liver_detail.html?liver=${livers[result.livers[1]-1].name}`);
+                    $("#portrait-right-img").attr("src", `img/liverpicker/liverpicker_image${result.livers[2]}.png`);
+                    $("#portrait-right-link").attr("href", `liver_detail.html?liver=${livers[result.livers[2]-1].name}`);
+                } else {
+                    $("#portrait-middle-img").attr("src", `img/liverpicker/liverpicker_image21.png`);
+                    $("#portrait-middle-link").attr("href", `https://www.youtube.com/channel/UC_a1ZYZ8ZTXpjg9xUY9sj8w`);
+                }
+
+
                 $("#quiz-restart-btn").click(restart);
                 return;
             }
+
+            //quiz update
             let options = `<div class="quiz-box-option-box">`;
             questions[curQuestion].ans.forEach(element => {
                 options += `<button class="quiz-box-option" id="${element.tag}">${element.display}</button>`;
             });
-
+            $("#question").html(questions[curQuestion].q);
             $("#quiz").html(options + "</div>");
             questions[curQuestion].ans.forEach(element => {
                 $(`#${element.tag}`).click(() => {
@@ -187,23 +210,27 @@
 <body>
     <main>
         <div class="display-box">
+            <!-- portrait -->
             <div class="display-box-portrait-container">
                 <span class="display-box-portrait-container-item-q">?</span>
                 <div class="display-box-portrait-container-item hide" id="portrait-left">
-                    <a href=""><img class="display-box-portrait-container-item-img" src="img/liverpicker/liverpicker_image21.png" alt=""></a>
+                    <img class="display-box-portrait-container-item-img" id="portrait-left-img" src="img/liverpicker/liverpicker_image21.png" alt="">
+                    <a class="display-box-portrait-container-item-link" id="portrait-left-link" href=""></a>
                 </div>
                 <div class="display-box-portrait-container-item" id="portrait-middle">
-                    <img class="display-box-portrait-container-item-img" src="img/liverpicker/liverpicker_image21.png" alt="">
-                    <a class="display-box-portrait-container-item-link" href=""></a>
+                    <img class="display-box-portrait-container-item-img" id="portrait-middle-img" src="img/liverpicker/liverpicker_image21.png" alt="">
+                    <a class="display-box-portrait-container-item-link" id="portrait-middle-link" href=""></a>
                 </div>
                 <div class="display-box-portrait-container-item hide" id="portrait-right">
-                    <a href=""><img class="display-box-portrait-container-item-img" src="img/liverpicker/liverpicker_image21.png" alt=""></a>
+                    <img class="display-box-portrait-container-item-img" id="portrait-right-img" src="img/liverpicker/liverpicker_image21.png" alt="">
+                    <a class="display-box-portrait-container-item-link" id="portrait-right-link" href=""></a>
                 </div>
             </div>
+            <!-- question -->
             <div class="display-box-question-container hide">
                 <img src="img/liverpicker/liverpicker_image22.png" alt="">
                 <div class="display-box-question-container-question">
-                    <span>adawdawdadawdwd</span>
+                    <span id="question">question</span>
                 </div>
             </div>
         </div>

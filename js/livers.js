@@ -98,9 +98,4 @@ let livers = [{
     desc: "一個保有童心的大人，在對於組裝車方面特別感興趣<br>且由於是玩具製作商，對於實體玩具有著大量知識<br>更是曾經使用人頭麥克風作為ASMR的題材<br>對於同期兩人十分雯柔，展現出了男媽媽的一面",
     yt: "https://www.youtube.com/channel/UCmovZ2th3Sqpd00F5RdeigQ",
     tw: "https://twitter.com/H_KAGAMI2434"
-}, {
-    name: "露露",
-    desc: "",
-    yt: "https://www.youtube.com/channel/UC_a1ZYZ8ZTXpjg9xUY9sj8w",
-    tw: ""
 }];

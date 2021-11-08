@@ -2,6 +2,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 #header-link-liver-picker {
@@ -25,9 +26,9 @@ main {
 
 .display-box-portrait-container {
     width: 100%;
+    /* height: 996px; */
     display: flex;
     justify-content: center;
-    gap: 2%;
 }
 
 .display-box-portrait-container-item {
@@ -49,19 +50,28 @@ main {
 }
 
 .display-box-portrait-container-item-img {
-    width: 620px;
+    max-height: 976px;
+    height: fit-content;
     z-index: -1;
 }
 
 .display-box-portrait-container-item-link {
     position: absolute;
-    width: 20%;
+    width: 100%;
     height: 100%;
     z-index: -1;
 }
 
 .display-box-portrait-container-item:hover {
     opacity: 0.8;
+}
+
+#portrait-left-img {
+    z-index: -2;
+}
+
+#portrait-right-img {
+    z-index: -2;
 }
 
 
@@ -144,10 +154,18 @@ main {
 }
 
 .display-box-question-container>img {
-    height: 100%;
+    height: 636px;
 }
 
 .display-box-question-container-question {
-    height: 100%;
-    background-image: url("img/icon/textbb.png");
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    width: 600px;
+    background-image: url("../img/icon/textbb.png");
+}
+
+.display-box-question-container-question>span {
+    padding-top: 50px;
+    font-size: 1.5rem;
 }
