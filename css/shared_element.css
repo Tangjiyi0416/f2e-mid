@@ -1,5 +1,5 @@
 .liver-img {
-    transition: .5s ease;
+    transition: .3s ease;
     background-color: #C4C4C4;
 }
 
@@ -7,10 +7,11 @@
     background-color: #8D8D8D;
 }
 
-.text-link {}
+.icon-link {
+    transition: .3s ease;
+    opacity: 1;
+}
 
-.text-link:hover {}
-
-.icon-link {}
-
-.icon-link:hover {}
+.icon-link:hover {
+    opacity: 0.6;
+}

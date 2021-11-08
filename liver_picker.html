@@ -14,37 +14,74 @@
     <script src="js/shared_layout.js"></script>
     <script>
         let questions = [{
-            q: "習慣的就寢時間？",
+            q: "你希望V陪你的時間？",
             ans: [{
-                display: "A：22:00前",
-                tag: "ans_sleep_1"
+                display: "A.一個人的早晨",
+                tag: "ans_time_1"
             }, {
-                display: "B：00:00左右",
-                tag: "ans_sleep_2"
+                display: "B.午餐的閒暇",
+                tag: "ans_time_2"
             }, {
-                display: "C：02:00後",
-                tag: "ans_sleep_3"
+                display: "C.孤零零的夜晚 ",
+                tag: "ans_time_3"
             }, {
-                display: "D：睡你XX起來嗨",
-                tag: "ans_sleep_4"
+                display: "D.與他共度良宵",
+                tag: "ans_time_4"
             }, ]
         }, {
-            q: "X！好怪喔？",
+            q: "你的日文水平？",
             ans: [{
-                display: "A：再看一眼",
-                tag: "ans_curiosity_1"
+                display: "A.拜託我超勇的(流暢到堪比日本人)",
+                tag: "ans_lang_1"
             }, {
-                display: "B：發限動",
-                tag: "ans_curiosity_2"
+                display: "B.能聽懂，但沒完全懂",
+                tag: "ans_lang_2"
             }, {
-                display: "C：以上皆是",
-                tag: "ans_curiosity_3"
+                display: "C.這個我就是遜啦(幾乎文盲)",
+                tag: "ans_lang_3"
             }, {
-                display: "D：掉頭離開",
-                tag: "ans_curiosity_4"
+                display: "D.窩餔茲到",
+                tag: "ans_lang_4"
+            }, ]
+        }, {
+            q: "你看V的目的？",
+            ans: [{
+                display: "A.有人能靜靜地陪伴(ASMR系)",
+                tag: "ans_pps_1"
+            }, {
+                display: "B.看搞笑紓解壓力",
+                tag: "ans_pps_2"
+            }, {
+                display: "C.專業的遊戲玩家",
+                tag: "ans_pps_3"
+            }, {
+                display: "D.聽人唱歌",
+                tag: "ans_pps_4"
+            }, ]
+        }, {
+            q: "你喜歡的氛圍？",
+            ans: [{
+                display: "A.一個人專心地做事",
+                tag: "ans_feel_1"
+            }, {
+                display: "B.一小群人吵吵鬧鬧",
+                tag: "ans_feel_2"
+            }, {
+                display: "C.一堆人熱熱鬧鬧才是最棒的",
+                tag: "ans_feel_3"
+            }, {
+                display: "D.窩餔茲到",
+                tag: "ans_feel_4"
             }, ]
         }, ];
-
+        let result = [{
+            tags: ["ans_time_4", "ans_lang_4", "ans_pps_4", "ans_feel_4"],
+            livers: [{
+                index: 10,
+                name = ""
+            }],
+            desc: "你適合的是RRR三人<br>搞笑是他們的拿手好戲<br>而且三人人緣極佳時不時會參與大型活動<br>現在開始邁開成為DD的第一步吧"
+        }];
         let curQuestion = 0;
         let finalTags = [];
         $(function() {
@@ -80,14 +117,21 @@
 
 <body>
     <main>
-        <div class="result-display">
+        <div class="display-box">
+            <div class="display-box-portrait-container">
+                <div class="display-box-portrait-container-item" id="portrait-left">
+                    <a href=""><img src="" class="liver-img" alt=""></a>
+                </div>
+                <div class="display-box-portrait-container-item" id="portrait-middle">
 
-        </div>
-        <div class="mascot">
+                </div>
+                <div class="display-box-portrait-container-item" id="portrait-right">
 
+                </div>
+            </div>
         </div>
-        <div class="quiz" id="quiz">
-            <h2>做個小測驗，找到你想廚的V</h2>
+        <div class="quiz-box" id="quiz">
+            <h2>測試一下你感興趣的liver吧！</h2>
             <button class="btn-quiz-start" id="btn-quiz-start">做就對了</button>
         </div>
     </main>

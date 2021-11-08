@@ -1,6 +1,7 @@
 main {
-    width: 800px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #header-link-liver-picker {
@@ -10,8 +11,12 @@ main {
     border-bottom: 2px solid #fFF;
 }
 
-.result-display {
-    width: 800px;
-    height: 600px;
+.display-box {
+    width: 100%;
+    height: 624px;
     background: #000;
+}
+
+.quiz-box {
+    height: 360px;
 }

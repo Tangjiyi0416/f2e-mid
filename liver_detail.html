@@ -12,109 +12,8 @@
     <link rel="stylesheet" href="css/liver_detail.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="js/shared_layout.js"></script>
+    <script src="js/livers.js"></script>
     <script>
-        let livers = [{
-            name: "月之美兔",
-            desc: "彩虹社元老liverJK三巨頭之首，亦是現今直播勢的開端<br>同時也是彩虹社中許多成員所憧憬的對象，<br>通稱委員長，因為她而成為Vtuber的人也不在少數<br>身為一個次世代文化影響頗深的御宅族<br>平時閒聊直播中對同為宅圈的人有不錯的親切感<br>但其鬼才的思考模式及企劃力往往讓人覺得<br>「Vtuber對人類而言太早了」",
-            yt: "https://www.youtube.com/channel/UCD-miitqNY3nyukJ4Fnf4_A",
-            tw: "https://twitter.com/MitoTsukino"
-        }, {
-            name: "靜凜",
-            desc: "彩虹社元老liverJK三巨頭之一<br>一個究極的遊戲廢人<br>有著和JK組三人出遊結果待在賓館瘋狂直播遊戲的紀錄<br>和異於常人的生理時鐘，其直播時間和普通人基本相反<br>同時也是一名肌肉狂熱者<br>時常對舍內的肌肉男做出「放開你的肌肉」此類發言<br>被稱之為肌肉妖怪",
-            yt: "https://www.youtube.com/c/ShizukaRinOfficial",
-            tw: "https://twitter.com/ShizuRin23"
-        }, {
-            name: "樋口楓",
-            desc: "彩虹社元老liverJK三巨頭之一，暱稱德龍<br>帥氣的女性角色，也是JK組中唯一會使用JK語的<br>在某些後輩眼中具有不可招惹的大哥形象，<br>但在自家的寵物面前又會呈現出相當可愛的反差萌<br>因此在不論社內外的女姓Liver中有極高的人氣<br>但本人是一根木頭，和委員長是真愛",
-            yt: "https://www.youtube.com/channel/UCsg-YqdqQ-KFF0LNk23BY4A",
-            tw: "https://twitter.com/HiguchiKaede"
-        }, {
-            name: "劍持刀也",
-            desc: "劍道社男子高中生，一個擅長聊天與挑釁的人<br>在Vtuber生態圈中他和觀眾的相處模式也相當特別<br>互毆互損、互相迫害都是日常<br>一名蘿莉控，更是常常會說出：<br>如果把蘿莉弄哭了就不算是蘿莉控，那只是變態而已<br>這類名言，而且笑聲的非常可愛在非官方的維基百科上更是被蒐集了上千種的笑聲",
-            yt: "https://www.youtube.com/channel/UCv1fFr156jc65EMiLbaLImw/featured",
-            tw: " https://twitter.com/rei_Toya_rei"
-        }, {
-            name: "本間向日葵",
-            desc: "彩虹社Gamers組的一員<br>一個開朗的女子高中生，頭上的向日葵是特徵，<br>官方網站中說明：是個有點天然的少女，<br>實則是個完全的天然呆，<br>雖說能災其身上感受到義務教育的失敗，<br>但仍舊具備不低的遊戲實力<br>在社內組合「多葛本社」中擔任女兒的身分",
-            yt: "https://www.youtube.com/channel/UC0g1AE0DOjBYnLhkgoRWN1w",
-            tw: "https://twitter.com/honmahimawari"
-        }, {
-            name: "叶",
-            desc: "彩虹社Gamers組的一員，一個毫無來由的男子<br>初期以治癒人心為一大賣點，<br>雖說不算偏離但多了許多黑暗面，<br>社內同僚戲稱「彩虹之闇」<br>彩虹社第一肝帝，彩虹社直播總時長霸榜第一人<br>作為Gamer尤為擅長FPS但節奏遊戲可以說是殘廢<br>與同組的葛葉所結成的組合，為女性粉絲所熱愛",
-            yt: "https://www.youtube.com/c/KanaeChanneltwitter",
-            tw: "https://twitter.com/Kanae_2434"
-        }, {
-            name: "葛葉",
-            desc: "彩虹社Gamers組的一員，一名家裡蹲吸血鬼，<br>Vtuber中少數無視公司規範直接向觀眾要錢的強欲人<br>也是彩虹社兼囝姓Vtuber中首位百萬訂閱的實力者<br>個性十分得像小孩子，雖說不善交際，<br>也經常以遊戲為契機使得社內許多liver進行連動<br>在社內組合中「多葛本社」扮演兒子的角色，<br>也是傳說中的天氣卡組發明者",
-            yt: "https://www.youtube.com/channel/UCSFCh5NL4qXrAy9u-u2lX3g",
-            tw: "https://twitter.com/Vamp_Kuzu"
-        }, {
-            name: "社築",
-            desc: "彩虹社seed素人應徵計畫的成員，形象為一名IT工程師<br>實則也真的是一名IT工程師，由於工作的關係，<br>其直播時間固定在9:00到1:00之間，<br>本人是一個極度的宅，不論是話題或是梗，<br>偶爾會因為過度專業而導致冷場<br>在「多葛本社」扮演著父親的角色<br>實際上社築也為了子女兩人操碎了心",
-            yt: "https://www.youtube.com/channel/UCKMYISTJAQ8xTplUPHiABlA",
-            tw: "https://twitter.com/846kizuQ"
-        }, {
-            name: "多拉",
-            desc: "彩虹社seed素人應徵計畫的成員，形象為人化的古龍<br>有著與其成熟女性聲線不符合的老人口癖，<br>及十分喜歡喝茶的表現，非常符合作為年長古龍的形象<br>在「多葛本社」中扮演母親的形象，<br>在聯動中確實與父親擔當社築有著不錯的互動<br>但實質上輛人卻僅以一次的雙人合作",
-            yt: "https://www.youtube.com/channel/UC53UDnhAAYwvNO7j_2Ju1cQ",
-            tw: "https://twitter.com/___Dola"
-        }, {
-            name: "周·力一",
-            desc: "以小丑形象示人的V，<br>其名字日文若是以片假名讀會變成Joker<br>由於家教問題遊戲力基本可以稱之為Vtuber界的地板之一<br>其行為正如其形象小丑給人般的怪誕<br>平時直播內容雖然以對外國人稍嫌困難的談天居多<br>但除此之外他的舞台表現力極高<br>使用家用3D或是大型活動的場合都能發現這點<br>被譽為「為舞台而生的男人」",
-            yt: "https://www.youtube.com/channel/UChUJbHiTVeGrSkTdBzVfNCQ",
-            tw: "https://twitter.com/JoeRikiichi"
-        }, {
-            name: "龍膽尊",
-            desc: "有著一頭紫色秀髮，穿著著一襲深紫色和式服裝的少女<br>其身分是數千歲的鬼之國的女王<br>這位鬼之國的女王多才多藝、聲音成熟，<br>除了億點點的酗酒壞習慣之外，可以說是無所不能<br>被社內有人戲稱「除了戒酒之外無所不能的鬼」",
-            yt: "https://www.youtube.com/channel/UCPvGypSgfDkVe7JG2KygK7A",
-            tw: "https://twitter.com/RindouMikoto"
-        }, {
-            name: "鷹宮莉音",
-            desc: "私立帝華學園的學生，同時是強大魔法師的血脈繼承人<br>在社內擁有極高的人員，許多大型企劃都是由他策劃<br>在彩虹社料理對決中更是征服了許多評審的味蕾<br>「金憨憨」是他在社內所得到的稱號，<br>在他展現出作為深閨大小姐的無知<br>近期更是與同為憨憨的兩人作為歌唱團體出道",
-            yt: "https://www.youtube.com/channel/UCV5ZZlLjk5MKGg3L0n0vbzw",
-            tw: "https://twitter.com/TakamiyaRion"
-        }, {
-            name: "修女克蕾雅",
-            desc: "此人乃是Vtuber界少數的清流，在充滿著混沌的彩虹社中<br>以一個治癒系Vtuber的身分活躍著<br>每日中午都會有工作的生活音ASMR<br>希望陪觀眾度過平日裡最為煩悶的時段<br>有著能夠淨化彩虹裡邪惡的力量<br>連身為彩虹之闇的叶都無法使盡全力作惡",
-            yt: "https://www.youtube.com/channel/UC1zFJrfEKvCixhsjNSb1toQ",
-            tw: "https://twitter.com/SisterCleaire"
-        }, {
-            name: "莉澤·赫露艾斯塔",
-            desc: "赫露艾斯塔王國第二皇女，陰角個性<br>因此也特別能夠體諒性格陰暗的人，<br>時不時與同期連動時展現出”蘇維埃斯塔”的共產主義<br>學力可以說是彩虹社的前段，可惜連個位算術都有障礙<br>是個極致的畫伯連做設計工作的第一皇女都為之無言",
-            yt: "https://www.youtube.com/channel/UCZ1xuCK1kNmn5RzPYIZop3w",
-            tw: "https://twitter.com/Lize_Helesta"
-        }, {
-            name: "安潔·卡特莉娜",
-            desc: "赫露艾斯塔王國的國家煉金術師，<br>帥氣的聲線與中性的打扮，也有著牛郎般的溫柔<br>卻有著：「嘛，這個人一定喜歡我」的常態名言<br>實質上是一個超級處男，面對鬼之女王的調戲毫無辦法<br>對胸部異常的渴望，<br>甚至在3D回時使用煉金術為自己豐胸",
-            yt: "https://www.youtube.com/channel/UCHVXbQzkl3rDfsXWo8xi2qw",
-            tw: "https://twitter.com/ange_katrina_"
-        }, {
-            name: "戌亥床",
-            desc: "在和風茶室打工的刻爾柏洛斯，<br>雖說是地獄三頭犬，但討厭被稱為狗<br>有著社內公認的歌唱實力，偶有遊戲及雜談直播<br>遊戲直播多為動物森友會的垂釣聊天台",
-            yt: "https://www.youtube.com/channel/UCXRlIK3Cw_TJIQC5kSJJQMg",
-            tw: "https://twitter.com/inui_toko"
-        }, {
-            name: "綠仙",
-            desc: "性別不明的高中生，身著一襲中國風裝束<br>初期表明希望觀眾給予糖和鞭子藉此相互進步<br>但近期糖的比例愈發高漲，本人也有越來越囂張的趨勢<br>也是社內初期較為有名的唱將兼作曲人，<br>受許多後輩景仰",
-            yt: "https://www.youtube.com/channel/UCt5-0i4AVHXaWJrL8Wql3mw",
-            tw: "https://twitter.com/midori_2434"
-        }, {
-            name: "夢追翔",
-            desc: "一名不善長彈奏樂器的作曲家，對待人非常和善，<br>曾在彩虹社工作人員中獲得了最容易相處的liver一殊榮<br>有著豐富的司儀能力，是官方節目上的御用主持人<br>與平時的狀態不同，一但壓力到了一定程度，<br>其理智便如同他的袖子一樣消失<br>加上他那尖銳的笑聲，更為滲人",
-            yt: "https://www.youtube.com/channel/UCTIE7LM5X15NVugV7Krp9Hw",
-            tw: "https://twitter.com/kakeru_yumeoi"
-        }, {
-            name: "星川莎拉",
-            desc: "辣妹風格的高中生，<br>其囂張的態度及自戀的個性令他收穫了不少負評，<br>特別喜歡仗著自己女高中生的身分對社內男性liver<br>使用爸爸活藝讓對方炎上<br>遲到慣犯，在官方節目上更是被工作人員一次次拿出來鞭",
-            yt: "https://www.youtube.com/channel/UC9V3Y3_uzU5e-usObb6IE1w",
-            tw: "https://twitter.com/Sara_Hoshikawa"
-        }, {
-            name: "加賀美隼人",
-            desc: "一個保有童心的大人，在對於組裝車方面特別感興趣<br>且由於是玩具製作商，對於實體玩具有著大量知識<br>更是曾經使用人頭麥克風作為ASMR的題材<br>對於同期兩人十分雯柔，展現出了男媽媽的一面",
-            yt: "https://www.youtube.com/channel/UCmovZ2th3Sqpd00F5RdeigQ",
-            tw: "https://twitter.com/H_KAGAMI2434"
-        }];
-
         var params = new URLSearchParams(window.location.search);
         let liver = params.get("liver");
         // alert((livers.find(e => e.name == liver)).desc);
@@ -151,8 +50,8 @@
                 <br>但其鬼才的思考模式及企劃力往往讓人覺得
                 <br>「Vtuber對人類而言太早了」</div>
             <div class="content-box-media">
-                <a id="yt-link" href=""><img src="img/icon/youtube_icon.png" alt=""></a>
-                <a id="tw-link" href=""><img src="img/icon/twitter_icon.png" alt=""></a>
+                <a id="yt-link" href=""><img src="img/icon/youtube_icon.png" class="icon-link" alt=""></a>
+                <a id="tw-link" href=""><img src="img/icon/twitter_icon.png" class="icon-link" alt=""></a>
             </div>
 
         </div>
