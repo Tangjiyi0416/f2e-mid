@@ -137,15 +137,21 @@
         let curQuestion = 0;
         let finalTags = [];
         $(function() {
-            $("#quiz-start-btn").click(nextQuestion);
+            $("#quiz-start-btn").click(start);
         });
+
+        function start() {
+            $(".display-box-portrait-container").addClass("hide");
+            $(".display-box-question-container").removeClass("hide");
+            nextQuestion();
+        }
 
         function restart() {
             curQuestion = 0;
             finalTags.length = 0;
             $("#quiz").html(`<span class="quiz-box-desc">測試一下你感興趣的liver吧！</span>
             <button class="quiz-start-btn" id="quiz-start-btn">開始</button>`);
-            $("#quiz-start-btn").click(nextQuestion);
+            $("#quiz-start-btn").click(start);
             $(".display-box-portrait-container-item-q").removeClass("hide");
         }
 
@@ -155,8 +161,10 @@
                 let result = results.find(e => e.tags.every(tag => finalTags.includes(tag)));
                 $("#quiz").html(`<span class="quiz-box-desc result-desc">${result.desc}</span>
                    <button class="quiz-restart-btn" id="quiz-restart-btn">再來一次</button>`);
+                $(".display-box-portrait-container").removeClass("hide");
+
+                $(".display-box-question-container").addClass("hide");
                 $("#portrait-left").html
-                $(".display-box-portrait-container-item-q").addClass("hide");
                 $("#quiz-restart-btn").click(restart);
                 return;
             }
@@ -190,6 +198,12 @@
                 </div>
                 <div class="display-box-portrait-container-item hide" id="portrait-right">
                     <a href=""><img class="display-box-portrait-container-item-img" src="img/liverpicker/liverpicker_image21.png" alt=""></a>
+                </div>
+            </div>
+            <div class="display-box-question-container hide">
+                <img src="img/liverpicker/liverpicker_image22.png" alt="">
+                <div class="display-box-question-container-question">
+                    <span>adawdawdadawdwd</span>
                 </div>
             </div>
         </div>

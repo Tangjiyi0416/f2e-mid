@@ -135,3 +135,19 @@ main {
 
 
 /*#endregion quiz*/
+
+.display-box-question-container {
+    display: flex;
+    height: 636px;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.display-box-question-container>img {
+    height: 100%;
+}
+
+.display-box-question-container-question {
+    height: 100%;
+    background-image: url("img/icon/textbb.png");
+}
